@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="images/icon.png" type="image/gif" sizes="16x16">
+    <title>A R C H I - Premium Interior Design & Multipurpose Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Archi is best selling interior design website template with responsive stunning design">
+    <meta name="keywords"
+        content="architecture,building,business,bootstrap,creative,exterior design,furniture design,gallery,garden design,house,interior design,landscape design,multipurpose,onepage,portfolio,studio">
+    <meta name="author" content="">
+
+    <!-- CSS Files
+    ================================================== -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap" />
+    <link href="css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/color.css" rel="stylesheet" type="text/css">
+
+    <!-- color scheme -->
+    <link rel="stylesheet" href="css/colors/yellow-2.css" type="text/css" id="colors">
+
+    <!-- RS5.0 Stylesheet -->
+    <link rel="stylesheet" href="revolution/css/settings.css" type="text/css">
+    <link rel="stylesheet" href="revolution/css/layers.css" type="text/css">
+    <link rel="stylesheet" href="revolution/css/navigation.css" type="text/css">
+    <link rel="stylesheet" href="css/rev-settings.css" type="text/css">
+
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="css/custom-artist.css" type="text/css">
+</head>
+
+<body id="homepage">
+    <style>
+        /* Webkit Scrollbar Fix */
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #111;
+        }
+
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #444;
+            border-radius: 10px;
+        }
+
+        .custom-scroll::-webkit-scrollbar-thumb:hover {
+            background: #666;
+        }
+
+        /* Grid Constraint */
+        .press-grid-layout {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /* Force 4 columns */
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 992px) {
+            .press-grid-layout {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .press-grid-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <div id="wrapper">
+
+        <!-- header begin -->
+        <div id="header"></div>
+        <!-- header close -->
+
+        <!-- content begin -->
+        <div id="content" class="no-top no-bottom">
+
+            <section class="press-section py-5">
+                <h1 class="ultra-big relative wow fadeInUp animated primary-color-1 text-center">Media</h1>
+
+                <div class="container mb-5 d-flex justify-content-center">
+                    <div class="search-wrapper btn-stroke" style="max-width: 500px; width: 100%;">
+                        <input type="text" id="pressSearch" placeholder="Search by title or year..." style="
+        background: none;
+        border: none;
+        box-shadow: none;
+        outline: none;
+        width: 95%;
+        color: white;
+    ">
+
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M11 20C15.9706 20 20 15.9706 20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20Z"
+                                stroke="currentcolor" style="stroke:currentcolor;stroke:currentcolor;stroke-opacity:1;"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
+                                stroke="currentcolor" style="stroke:currentcolor;stroke:currentcolor;stroke-opacity:1;"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+
+
+                    </div>
+                </div>
+
+                <div class="container-fluid px-4" id="pressContainer">
+                </div>
+            </section>
+            <script>
+                let allPressItems = [];
+
+                fetch('js/json/media_sogani.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        allPressItems = data;
+                        renderPress(allPressItems);
+                        attachSearchListener();
+                    })
+                    .catch(error => console.error("Error loading JSON:", error));
+
+                // Attach search listener after items are loaded
+                function attachSearchListener() {
+                    const searchInput = document.getElementById('pressSearch');
+                    if (!searchInput) {
+                        console.error('Search input element not found');
+                        return;
+                    }
+
+                    searchInput.addEventListener('input', (e) => {
+                        const query = e.target.value.toLowerCase().trim();
+
+                        if (query === '') {
+                            // Show all items if search is empty
+                            renderPress(allPressItems);
+                        } else {
+                            // Filter items based on search query
+                            const filtered = allPressItems.filter(item =>
+                                item.title.toLowerCase().includes(query) ||
+                                item.subheading.toLowerCase().includes(query) ||
+                                (item.category && item.category.toLowerCase().includes(query))
+                            );
+                            renderPress(filtered);
+                        }
+                    });
+                }
+
+                function renderPress(items) {
+                    const container = document.getElementById('pressContainer');
+                    if (!container) {
+                        console.error('Press container not found');
+                        return;
+                    }
+
+                    container.innerHTML = ''; // Clear existing
+
+                    // Show "no results" message if filtered list is empty
+                    if (items.length === 0) {
+                        container.innerHTML = '<div style="text-align: center; padding: 40px; color: #666;"><p>No results found. Try a different search.</p></div>';
+                        return;
+                    }
+
+                    // 1. Group items by year
+                    const groups = items.reduce((acc, item) => {
+                        const yearMatch = item.subheading.match(/\d{4}/);
+                        const year = yearMatch ? yearMatch[0] : "Other";
+                        if (!acc[year]) acc[year] = [];
+                        acc[year].push(item);
+                        return acc;
+                    }, {});
+
+                    // 2. Sort years descending
+                    const sortedYears = Object.keys(groups).sort((a, b) => b - a);
+
+                    sortedYears.forEach(year => {
+                        // Create Year Heading
+                        const section = document.createElement('div');
+                        section.className = 'year-section mb-5';
+                        section.innerHTML = `<h2 class="year-title mb-4 mt-4" style="text-align: right; width: 100%; padding-bottom: 10px;">${year}</h2>`;
+
+                        const grid = document.createElement('div');
+                        grid.className = 'press-masonry-grid';
+                        grid.style.display = 'grid';
+                        grid.style.gridTemplateColumns = 'repeat(auto-fit, minmax(200px, 1fr))';
+                        grid.style.gridAutoRows = 'auto';
+                        grid.style.maxWidth = '400';
+                        grid.style.gap = '16px';
+
+                        groups[year].forEach((item) => {
+                            // Generate random sizes: 1, 2, or 3 (for variety)
+                            const randomSize = Math.floor(Math.random() * 3) + 1;
+                            const randomHeight = 150 + (randomSize * 50); // 150px, 200px, or 250px
+
+                            const div = document.createElement('div');
+                            div.className = 'press-item wow fadeInUp';
+                            div.style.gridColumn = `span ${randomSize > 2 ? 2 : 1}`;
+                            div.style.minHeight = randomHeight + 'px';
+                            div.style.position = 'relative'; // Important for overlay positioning
+
+                            div.innerHTML = `
+                <a href="${item.url}" target="_blank" class="press-card" style="height: 100%; display: flex; position: relative;">
+                    <div class="press-image-wrapper" style="width: 100%; height: 100%; overflow: hidden;">
+                        <img src="${item.image}" alt="${item.title}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="press-overlay" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; background: rgba(0,0,0,0.5); opacity: 0; transition: opacity 0.3s;">
+                        <div class="press-content" style="position: absolute; bottom: 0; left: 0; right: 0; color: white; padding: 15px;">
+                            <span class="press-category" style="font-size: 12px; font-weight: bold;">Featured Media</span>
+                            <h5 class="press-title" style="margin: 8px 0 4px 0; font-size: 16px;">${item.title}</h5>
+                            <p class="press-sub" style="margin: 0; font-size: 13px;">${item.subheading}</p>
+                        </div>
+                    </div>
+                </a>`;
+
+                            // Hover effect
+                            div.addEventListener('mouseenter', () => {
+                                div.querySelector('.press-overlay').style.opacity = '1';
+                            });
+                            div.addEventListener('mouseleave', () => {
+                                div.querySelector('.press-overlay').style.opacity = '0';
+                            });
+
+                            grid.appendChild(div);
+                        });
+
+                        section.appendChild(grid);
+                        container.appendChild(section);
+                    });
+                }
+
+            </script>
+            <!-- Footer Start -->
+            <div id="footer"></div>
+        </div>
+        <!-- content closed -->
+    </div>
+
+
+
+    <!-- Javascript Files
+    ================================================== -->
+    <script src="js/plugins.js"></script>
+    <script src="js/designesia.js"></script>
+    <script src="js/header.js"></script>
+
+    <!-- RS5.0 Core JS Files -->
+    <script src="revolution/js/jquery.themepunch.tools.min.js?rev=5.0"></script>
+    <script src="revolution/js/jquery.themepunch.revolution.min.js?rev=5.0"></script>
+
+    <!-- RS5.0 Extensions Files -->
+    <script src="revolution/js/extensions/revolution.extension.video.min.js"></script>
+    <script src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="revolution/js/extensions/revolution.extension.migration.min.js"></script>
+    <script src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+
+    <script>
+        jQuery(document).ready(function () {
+            // revolution slider
+            jQuery("#slider-revolution").revolution({
+                sliderType: "standard",
+                sliderLayout: "fullscreen",
+                delay: 5000,
+                navigation: {
+                    arrows: {
+                        enable: true
+                    },
+                },
+                parallax: {
+                    type: "mouse",
+                    origo: "slidercenter",
+                    speed: 2000,
+                    levels: [2, 3, 4, 5, 6, 7, 12, 16, 10, 50],
+                },
+                responsiveLevels: [1920, 1380, 1240],
+                gridwidth: [1300, 1200, 940],
+                spinner: "off",
+                gridheight: 700,
+                disableProgressBar: "on"
+            });
+        });
+    </script>
+
+</body>
+
+</html>

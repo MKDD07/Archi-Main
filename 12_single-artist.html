@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="images/icon.png" type="image/gif" sizes="16x16">
+    <title>Vibhor Sogani – Contemporary Art & Design Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Internationally acclaimed Indian artist, Vibhor Sogani has been engaged in various prestigious and award winning commissioned installations, design projects and conceptual art assignments.">
+    <meta name="keywords"
+        content="Vibhor Sogani, Indian artist, contemporary art, sculpture, commissioned installations, award-winning projects, conceptual art, design portfolio">
+    <meta name="author" content="Vibhor Sogani">
+
+
+    <!-- CSS Files
+    ================================================== -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap" />
+    <link href="css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/color.css" rel="stylesheet" type="text/css">
+
+    <!-- color scheme -->
+    <link rel="stylesheet" href="css/colors/yellow-2.css" type="text/css" id="colors">
+
+    <!-- RS5.0 Stylesheet -->
+    <link rel="stylesheet" href="revolution/css/settings.css" type="text/css">
+    <link rel="stylesheet" href="revolution/css/layers.css" type="text/css">
+    <link rel="stylesheet" href="revolution/css/navigation.css" type="text/css">
+    <link rel="stylesheet" href="css/rev-settings.css" type="text/css">
+
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="css/custom-artist.css" type="text/css">
+</head>
+
+<body id="homepage">
+    <div id="wrapper">
+        <!-- header begin -->
+        <div id="header"></div>
+        <!-- header close -->
+
+        <!-- content begin -->
+        <div id="content" class="no-top no-bottom">
+            <section id="section-slider" class="fullwidthbanner-container text-white" aria-label="section-slider">
+                <div id="slider-revolution">
+                    <ul id="slider-list">
+                        <!-- Slides will be dynamically inserted here -->
+                    </ul>
+                </div>
+            </section>
+
+            <section id="section-text">
+                <div class="container">
+
+                    <div class="spacer-triple"></div>
+                    <div class="mt-5">
+                        <div id="dynamic-content-root"></div>
+                    </div>
+
+                    <div class="spacer-double"></div>
+
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                        </div>
+                    </div>
+
+
+                </div>
+            </section>
+            <section class="banner" style="margin-bottom: 0;">
+                <div class="container-fluid p-0">
+                    <div class="position-relative banner-wrap">
+
+                        <!-- Image -->
+                        <img src="12_images-artist/banner/banner_sogani_studio.png" alt="Sogani Studio Banner"
+                            class="w-100 h-100 object-fit-cover">
+
+                        <!-- Overlay -->
+                        <span class="position-absolute top-0 start-0 w-100 h-100 banner-overlay"></span>
+
+                        <!-- Content -->
+                        <div
+                            class="position-absolute top-50 start-50 translate-middle text-center text-white px-3 w-100">
+                            <div class="d-flex flex-column justify-content-end align-items-end w-90">
+                                <p class="mb-2">Bespoke lighting design sculpted for modern spaces.</p>
+                                <h2 class="mb-3">SOGANI Design Studio</h2>
+
+
+                                <!-- BUTTON NOT CHANGED -->
+                                <a href="https://sogani.design/" class="btn btn-stroke mt-3">
+                                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M14.3967 10.9602L22.981 10.9602L22.981 19.5444" stroke="currentColor"
+                                            style="stroke:currentColor;stroke:currentColor;stroke-opacity:1;"
+                                            stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M10.9602 22.981L22.8608 11.0804" stroke="currentColor"
+                                            style="stroke:currentColor;stroke:currentColor;stroke-opacity:1;"
+                                            stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    Visit Sogani
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Footer Start -->
+            <div id="footer"></div>
+
+            <!-- Footer End -->
+        </div>
+        <!-- content closed -->
+    </div>
+
+    <!-- Javascript Files
+    ================================================== -->
+    <script src="js/plugins.js"></script>
+    <script src="js/designesia.js"></script>
+    <script src="js/header.js"></script>
+    <!-- RS5.0 Core JS Files -->
+    <script src="revolution/js/jquery.themepunch.tools.min.js?rev=5.0"></script>
+    <script src="revolution/js/jquery.themepunch.revolution.min.js?rev=5.0"></script>
+
+    <!-- RS5.0 Extensions Files -->
+    <script src="revolution/js/extensions/revolution.extension.video.min.js"></script>
+    <script src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="revolution/js/extensions/revolution.extension.migration.min.js"></script>
+    <script src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+
+    <script>
+        let sliderInitialized = false;
+
+        function initializeSlider() {
+            if (typeof jQuery !== 'undefined' && !sliderInitialized) {
+                try {
+                    jQuery("#slider-revolution").revolution({
+                        sliderType: "standard",
+                        sliderLayout: "fullscreen",
+                        delay: 5000,
+                        navigation: {
+                            arrows: {
+                                enable: true
+                            },
+                        },
+                        parallax: {
+                            type: "mouse",
+                            origo: "slidercenter",
+                            speed: 2000,
+                            levels: [2, 3, 4, 5, 6, 7, 12, 16, 10, 50],
+                        },
+                        responsiveLevels: [1920, 1380, 1240],
+                        gridwidth: [1300, 1200, 940],
+                        spinner: "off",
+                        gridheight: 700,
+                        disableProgressBar: "on"
+                    });
+                    sliderInitialized = true;
+                    console.log("Slider initialized successfully");
+                } catch (e) {
+                    console.error("Error initializing slider:", e);
+                }
+            }
+        }
+
+        function loadSlider(artwork) {
+            const sliderList = document.getElementById('slider-list');
+            sliderList.innerHTML = '';
+
+            if (!artwork.all_images || artwork.all_images.length === 0) {
+                console.warn("No images found in artwork data");
+                return;
+            }
+
+            artwork.all_images.forEach((imageUrl, index) => {
+                const li = document.createElement('li');
+                li.setAttribute('data-transition', 'fade');
+                li.setAttribute('data-slotamount', '10');
+                li.setAttribute('data-masterspeed', '200');
+                li.setAttribute('data-thumb', '');
+
+                const img = document.createElement('img');
+                img.alt = artwork.title + ' - Image ' + (index + 1);
+                img.className = 'rev-slidebg';
+                img.setAttribute('data-bgparallax', '10');
+                img.src = imageUrl;
+
+                li.appendChild(img);
+                sliderList.appendChild(li);
+            });
+
+            console.log("Slider loaded with " + artwork.all_images.length + " images");
+
+            // Initialize slider after DOM is updated
+            setTimeout(() => {
+                initializeSlider();
+            }, 500);
+        }
+
+        function renderArtwork(data) {
+            const root = document.getElementById('dynamic-content-root');
+            const details = data.project_details;
+
+            let html = `
+            <div class="row align-items-start mb-5">
+                <div class="col-12 col-md-8">
+                    <div class="de_large-portfolio no-bottom">
+                        <div class="d_inner">
+                            <h2 class="ultra-big wow fadeInUp" data-wow-delay=".2s">
+                                ${data.title}
+                            </h2>
+                            <div class="d_image jarallax">
+                                <img src="${data.main_image}" alt="${data.title}" class="img-fluid wow fadeInUp">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="project-details wow fadeInUp">
+                        <h2 class="text-center mb-4">Details</h2>
+                        <div class="info-text"><span class="title">Project Name</span><span class="val">${details.project_name}</span></div>
+                        <div class="info-text"><span class="title">Designer / Artist</span><span class="val">${details.artist}</span></div>
+                        <div class="info-text"><span class="title">Location</span><span class="val">${details.location}</span></div>
+                        <div class="info-text"><span class="title">Project Year</span><span class="val">${details.year}</span></div>
+                        <div class="info-text"><span class="title">Category</span><span class="val">${details.category}</span></div>
+                        <div class="info-text"><span class="title">Material</span><span class="val">${details.material}</span></div>
+                        <div class="info-text"><span class="title">Scale</span><span class="val">${details.scale}</span></div>
+                    </div>
+                </div>
+            </div>`;
+
+            html += '<div class="spacer-double" style="background-size: cover;"></div>';
+
+            data.description.forEach((section, index) => {
+                const isEven = index % 2 === 0;
+                const imageUrl = data.all_images[section.image_index] || data.main_image;
+                const rowClass = isEven ? "row align-items-center mb-5" : "row align-items-center flex-md-row-reverse mb-5";
+                const imageEffect = index === 1 ? 'style=""' : '';
+
+                html += `
+                <div class="col-12">
+                    <div class="${rowClass}">
+                        <div class="col-12 col-md-6">
+                            <img src="${imageUrl}" ${imageEffect} alt="${section.subheading}" class="img-fluid wow fadeInUp" style="aspect-ratio: 1 / 1; object-fit: cover; width: 100%;">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="project-detail ps-md-4 pe-md-4">
+                                ${index === 0 ? `<h2>Project Overview</h2>` : `<h3>${section.subheading}</h3>`}
+                                <p class="wow fadeInUp">${section.text}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+            });
+
+            root.innerHTML = html;
+
+            if (typeof WOW === 'function') {
+                new WOW().init();
+            }
+            document.title = data.title + " | Artist Portfolio";
+        }
+
+        // Main initialization
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const artworkId = parseInt(urlParams.get('id')) || 1; // Default to ID 1
+
+            console.log("Loading artwork with ID:", artworkId);
+
+            fetch('js/json/content_sogani.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load JSON: ' + response.status);
+                    }
+                    return response.json();
+                })
+                .then(allData => {
+                    console.log("JSON loaded successfully, total items:", allData.length);
+                    const artwork = allData.find(item => item.id === artworkId);
+
+                    if (artwork) {
+                        console.log("Artwork found:", artwork.title);
+                        loadSlider(artwork);
+                        renderArtwork(artwork);
+                    } else {
+                        console.error("Artwork not found with ID:", artworkId);
+                        document.getElementById('dynamic-content-root').innerHTML =
+                            "<div class='container text-center'><h2>Artwork not found.</h2></div>";
+                    }
+                })
+                .catch(err => {
+                    console.error("Error loading JSON:", err);
+                    document.getElementById('dynamic-content-root').innerHTML =
+                        "<div class='container text-center'><h2>Error loading content. Check console.</h2></div>";
+                });
+        });
+    </script>
+
+</body>
+
+</html>
