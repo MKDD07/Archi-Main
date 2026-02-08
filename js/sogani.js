@@ -18,13 +18,13 @@ function loadSnippet(filePath, containerId, callback) {
 
 // Load all snippets
 
-loadSnippet("../htm/header.html", "header");
+loadSnippet("htm/header.html", "header");
 
-loadSnippet("../htm/snippet_homepage_about.html", "snippet_about");
-loadSnippet("../htm/snippet_homepage_timeline.html", "snippet_timeline", function () {
+loadSnippet("htm/snippet_homepage_about.html", "snippet_about");
+loadSnippet("htm/snippet_homepage_timeline.html", "snippet_timeline", function () {
     if (typeof initTimeline === "function") initTimeline();
 });
-loadSnippet("../htm/footer.html", "footer");
+loadSnippet("htm/footer.html", "footer");
 
 
 // ========================================
