@@ -81,7 +81,7 @@ function initializeSnippets() {
 // 2. PORTFOLIO DATA LOADER
 // ========================================
 function loadPortfolioData() {
-    fetch('../js/json/content_sogani.json')
+    fetch('js/json/content_sogani.json')
         .then(response => {
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
             return response.json();
